@@ -8,7 +8,7 @@ namespace Module2HW1
         {
             // Calling logger interaction menu to begin logging
             Logger logger = Logger.GetInstance();
-            logger.LoggerInteractionMenu();
+            Starter.Run();
         }
     }
 }
