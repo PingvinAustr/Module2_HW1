@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+namespace Module2HW1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Starter.Run();
+        }
+    }
+}
