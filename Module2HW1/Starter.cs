@@ -57,22 +57,10 @@ namespace Module2HW1
                 }
             }
 
-            // Pring logs from memory
-            Logger.GetInstance().PrintMemoryLogs();
-
+            // Print logs from memory and to file
+            LogWriter.PrintMemoryLogs(Logger.GetInstance().ReturnMemoryLogs());
+            LogWriter.PrintLogsToFile(Logger.GetInstance().ReturnMemoryLogs());
             Console.WriteLine("\nNew logs have been added to log.txt file which is located in project directory");
         }
-
-        /* Starter with the Run method. The method signature does not accept or return anything.
-
-         The Run method contains of:
-
-         Cycle - 100 iterations.
-
-         Inside the loop, one of the 3 methods of the Actions class is called in random order
-
-         If the method returned a Result with the value Status = false, then logger is called and record  “Action failed by a reason:” and an error message from the Result object.
-
-         At the end of the cycle, create a file containing the text of all recorded logs*/
     }
 }

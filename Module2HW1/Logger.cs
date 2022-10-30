@@ -23,67 +23,16 @@ namespace Module2HW1
             return instance;
         }
 
-        // Save new log to log.txt and to memory
+        // Logging method
         internal void SaveNewLogEntry(Result logEntry)
         {
             _logList.Add(logEntry);
-            string path = @"../../../../log.txt";
-            File.AppendAllText(path, "[" + logEntry.LogTime + "] [" + logEntry.LogType + "] [" + logEntry.ErrorMessage + "]\n");
         }
 
-        // Print current memory logs
-        internal void PrintMemoryLogs()
+        // Method that returns current logs
+        internal List<Result> ReturnMemoryLogs()
         {
-            if (_logList.Count == 0)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("No logs in memory...");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            else
-            {
-                foreach (Result logEntry in _logList)
-                {
-                    Console.WriteLine("[" + logEntry.LogTime + "] [" + logEntry.LogType + "] [" + logEntry.ErrorMessage + "]");
-                }
-            }
-        }
-
-        // Print logs from log.txt file
-        private void PrintFileLogs()
-        {
-            if (File.Exists(@"../../../../log.txt"))
-            {
-                string fileText = File.ReadAllText(@"../../../../log.txt");
-                if (fileText == string.Empty)
-                {
-                    Console.WriteLine("No logs in file...");
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(fileText);
-                }
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("No logs in file...");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-        }
-
-        // Clear memory (delete all logs)
-        private void ClearMemoryLogs()
-        {
-            _logList.Clear();
-        }
-
-        // Clear log.txt (delete all logs)
-        private void ClearFileLogs()
-        {
-            string path = @"../../../../log.txt";
-            File.WriteAllText(path, string.Empty);
+            return _logList;
         }
     }
 }

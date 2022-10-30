@@ -6,8 +6,6 @@ namespace Module2HW1
     {
         public static void Main(string[] args)
         {
-            // Calling logger interaction menu to begin logging
-            Logger logger = Logger.GetInstance();
             Starter.Run();
         }
     }
